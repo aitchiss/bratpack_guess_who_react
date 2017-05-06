@@ -42,12 +42,21 @@
 
 .question-picker button, select{
   font-size: 1em;
-  height: 30px;
+  height: 35px;
   margin-top: 15px;
 }
 
 button{
   width: 70px;
+  border-radius: 5px;
+  background-color: #00CC99;
+  color: white;
+  border: none;
+
+}
+
+button:hover{
+  background-color: #FB2A51;
 }
 
 .q-and-a{
@@ -71,6 +80,6 @@ button{
 
 .final-guess-container button, select{
   font-size: 1em;
-  height: 30px;
+  height: 35px;
   margin-top: 15px;
 }

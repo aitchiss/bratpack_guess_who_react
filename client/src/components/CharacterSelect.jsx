@@ -3,15 +3,8 @@ import CharacterOption from './CharacterOption'
 
 class CharacterSelect extends React.Component{
 
-  constructor(props){
-    super(props)
-    this.state = {
-      currentSelection: 0
-    }
-  }
 
   updateSelection(e){
-    this.setState({currentSelection: e.target.value})
     this.props.onChangeHandler(e.target.value)
   }
 

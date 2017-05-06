@@ -22598,21 +22598,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var CharacterSelect = function (_React$Component) {
   _inherits(CharacterSelect, _React$Component);
 
-  function CharacterSelect(props) {
+  function CharacterSelect() {
     _classCallCheck(this, CharacterSelect);
 
-    var _this = _possibleConstructorReturn(this, (CharacterSelect.__proto__ || Object.getPrototypeOf(CharacterSelect)).call(this, props));
-
-    _this.state = {
-      currentSelection: 0
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (CharacterSelect.__proto__ || Object.getPrototypeOf(CharacterSelect)).apply(this, arguments));
   }
 
   _createClass(CharacterSelect, [{
     key: 'updateSelection',
     value: function updateSelection(e) {
-      this.setState({ currentSelection: e.target.value });
       this.props.onChangeHandler(e.target.value);
     }
   }, {
