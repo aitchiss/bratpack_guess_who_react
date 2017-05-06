@@ -7,10 +7,14 @@
 
 .picture-card{
   margin: 20px;
-  border: 2px solid hotpink;
+  border: 2px solid #FB2A51;
   text-align: center;
+  background-color: #FB2A51;
+  color: white;
+  height: 261px;
 }
 
 .picture-card img{
   width: 150px;
+  height: 200px;
 }
