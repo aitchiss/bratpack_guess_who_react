@@ -49,3 +49,11 @@
 .question-picker button{
   width: 50px;
 }
+
+.q-and-a{
+  display: flex;
+}
+
+.answer-text{
+  margin-left: 20px;
+}

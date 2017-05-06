@@ -69,9 +69,9 @@ class GuessWho extends React.Component{
     let question = this.state.questionItems[questionIndex]
     
     if (this.state.characters[this.indexOfPersonToGuess][question]){
-      console.log('yes')
+      this.setState({currentAnswer: 'Yes!'})
     } else {
-      console.log('no')
+      this.setState({currentAnswer: 'Nope!'})
     }
   }
 
@@ -80,7 +80,7 @@ class GuessWho extends React.Component{
       <div id="guess-who-game">
         <h1>Guess Who?</h1>
         <PictureContainer characters={this.state.characters}/>
-        <QandAContainer questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)}/>
+        <QandAContainer questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)} answer={this.state.currentAnswer}/>
       </div>
     )
   }

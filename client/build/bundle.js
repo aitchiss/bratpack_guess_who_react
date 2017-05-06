@@ -22099,9 +22099,9 @@ var GuessWho = function (_React$Component) {
       var question = this.state.questionItems[questionIndex];
 
       if (this.state.characters[this.indexOfPersonToGuess][question]) {
-        console.log('yes');
+        this.setState({ currentAnswer: 'Yes!' });
       } else {
-        console.log('no');
+        this.setState({ currentAnswer: 'Nope!' });
       }
     }
   }, {
@@ -22116,7 +22116,7 @@ var GuessWho = function (_React$Component) {
           'Guess Who?'
         ),
         _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters }),
-        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this) })
+        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this), answer: this.state.currentAnswer })
       );
     }
   }]);
@@ -22369,6 +22369,10 @@ var _QuestionSelect = __webpack_require__(185);
 
 var _QuestionSelect2 = _interopRequireDefault(_QuestionSelect);
 
+var _Answer = __webpack_require__(188);
+
+var _Answer2 = _interopRequireDefault(_Answer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22392,7 +22396,8 @@ var QandAContainer = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'q-and-a' },
-        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems, answerQuestion: this.props.answerQuestion })
+        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems, answerQuestion: this.props.answerQuestion }),
+        _react2.default.createElement(_Answer2.default, { answer: this.props.answer })
       );
     }
   }]);
@@ -22428,6 +22433,34 @@ var QuestionOption = function QuestionOption(props) {
 };
 
 exports.default = QuestionOption;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Answer = function Answer(props) {
+
+  return _react2.default.createElement(
+    "p",
+    { className: "answer-text" },
+    props.answer
+  );
+};
+
+exports.default = Answer;
 
 /***/ })
 /******/ ]);
