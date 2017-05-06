@@ -1,6 +1,7 @@
 import React from 'react'
 import PictureContainer from './PictureContainer'
 import QandAContainer from './QandAContainer'
+import FinalGuessContainer from './FinalGuessContainer'
 
 class GuessWho extends React.Component{
 
@@ -73,7 +74,6 @@ class GuessWho extends React.Component{
 
   answerQuestion(questionIndex){
     let question = this.state.questionItems[questionIndex]
-    
     if (this.state.characters[this.indexOfPersonToGuess][question]){
       this.setState({currentAnswer: 'Yes!'})
     } else {
@@ -87,6 +87,7 @@ class GuessWho extends React.Component{
         <h1>Guess Who?</h1>
         <PictureContainer characters={this.state.characters}/>
         <QandAContainer questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)} answer={this.state.currentAnswer}/>
+        <FinalGuessContainer characters={this.state.characters} />
       </div>
     )
   }
