@@ -1,0 +1,16 @@
+
+.picture-container{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.picture-card{
+  margin: 20px;
+  border: 2px solid hotpink;
+  text-align: center;
+}
+
+.picture-card img{
+  width: 150px;
+}
