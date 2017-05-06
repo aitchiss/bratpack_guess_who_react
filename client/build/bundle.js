@@ -22046,44 +22046,65 @@ var GuessWho = function (_React$Component) {
       characters: [{ id: 1,
         name: 'Ally Sheedy',
         img: 'https://s-media-cache-ak0.pinimg.com/736x/4a/dc/fe/4adcfe2950ad9c75d2b5566cf4224b4f.jpg',
-        hair: 'brown',
-        eyes: 'brown' }, { id: 2,
+        female: true,
+        'brown hair': true,
+        'brown eyes': true }, { id: 2,
         name: 'Molly Ringwald',
         img: 'http://68.media.tumblr.com/7bae56160d84dc1de8113a79e3bc4df6/tumblr_mof4tnzKhV1r32kzio1_r1_500.jpg',
-        hair: 'red',
-        eyes: 'brown' }, { id: 3,
+        female: true,
+        'red hair': true,
+        'brown eyes': true }, { id: 3,
         name: 'Judd Nelson',
         img: 'https://s-media-cache-ak0.pinimg.com/originals/f3/65/fd/f365fda69653c71427b0dbcb0346b2a4.jpg',
-        hair: 'brown',
-        eyes: 'brown' }, { id: 4,
+        male: true,
+        'brown hair': true,
+        'brown eyes': true }, { id: 4,
         name: 'Emilio Estevez',
         img: 'https://s-media-cache-ak0.pinimg.com/originals/56/39/32/5639327c3067065fa864cf263f869285.jpg',
-        hair: 'brown',
-        eyes: 'blue' }, { id: 5,
+        male: true,
+        'brown hair': true,
+        'blue eyes': true }, { id: 5,
         name: 'Anthony Michael Hall',
         img: 'https://s-media-cache-ak0.pinimg.com/736x/cd/36/e0/cd36e0aa0c9536a9e52a4bcdfef8c970.jpg',
-        hair: 'blonde',
-        eyes: 'blue',
+        male: true,
+        'blonde hair': true,
+        'blue eyes': true,
         glasses: 'true' }, { name: 'Rob Lowe',
         img: 'https://s-media-cache-ak0.pinimg.com/736x/aa/c1/4c/aac14c485bf3b4253cf71b4e880b849c.jpg',
-        hair: 'brown',
-        eyes: 'blue' }, { id: 6,
+        male: true,
+        'brown hair': true,
+        'blue eyes': true }, { id: 6,
         name: 'Andrew McCarthy',
         img: 'https://weewestchester.com/wp-content/uploads/2017/03/Pretty-in-Pink-andrew-mccarthy-novel.jpg',
-        hair: 'brown',
-        eyes: 'blue' }, { id: 7,
+        male: true,
+        'brown hair': true,
+        'blue eyes': true }, { id: 7,
         name: 'Demi Moore',
         img: 'http://www.hollywoodreporter.com/sites/default/files/2015/06/demi_moore_st_elmos_fire_p_15_everett.jpg',
-        hair: 'brown',
-        eyes: 'brown' }],
+        female: true,
+        'brown hair': true,
+        'brown eyes': true }],
 
-      questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes']
-
+      questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes'],
+      currentAnswer: ''
     };
+
+    _this.indexOfPersonToGuess = Math.floor(Math.random() * _this.state.characters.length);
     return _this;
   }
 
   _createClass(GuessWho, [{
+    key: 'answerQuestion',
+    value: function answerQuestion(questionIndex) {
+      var question = this.state.questionItems[questionIndex];
+
+      if (this.state.characters[this.indexOfPersonToGuess][question]) {
+        console.log('yes');
+      } else {
+        console.log('no');
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -22095,7 +22116,7 @@ var GuessWho = function (_React$Component) {
           'Guess Who?'
         ),
         _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters }),
-        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems })
+        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this) })
       );
     }
   }]);
@@ -22251,6 +22272,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(82);
 
 var _react2 = _interopRequireDefault(_react);
@@ -22261,31 +22284,67 @@ var _QuestionOption2 = _interopRequireDefault(_QuestionOption);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var QuestionSelect = function QuestionSelect(props) {
-  var selectOptions = props.questionItems.map(function (item, index) {
-    return _react2.default.createElement(_QuestionOption2.default, { item: item, value: index, key: index });
-  });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  return _react2.default.createElement(
-    'div',
-    { className: 'question-picker' },
-    _react2.default.createElement(
-      'p',
-      null,
-      'characteristic: '
-    ),
-    _react2.default.createElement(
-      'select',
-      null,
-      selectOptions
-    ),
-    _react2.default.createElement(
-      'button',
-      { className: 'question-button' },
-      'ask'
-    )
-  );
-};
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var QuestionSelect = function (_React$Component) {
+  _inherits(QuestionSelect, _React$Component);
+
+  function QuestionSelect(props) {
+    _classCallCheck(this, QuestionSelect);
+
+    var _this = _possibleConstructorReturn(this, (QuestionSelect.__proto__ || Object.getPrototypeOf(QuestionSelect)).call(this, props));
+
+    _this.state = {
+      currentQuestionIndex: 0
+    };
+    return _this;
+  }
+
+  _createClass(QuestionSelect, [{
+    key: 'handleAskClick',
+    value: function handleAskClick(e) {
+      this.props.answerQuestion(this.state.currentQuestionIndex);
+    }
+  }, {
+    key: 'onOptionChange',
+    value: function onOptionChange(e) {
+      this.setState({ currentQuestionIndex: e.target.value });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var selectOptions = this.props.questionItems.map(function (item, index) {
+        return _react2.default.createElement(_QuestionOption2.default, { item: item, value: index, key: index });
+      });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'question-picker' },
+        _react2.default.createElement(
+          'p',
+          null,
+          'characteristic: '
+        ),
+        _react2.default.createElement(
+          'select',
+          { onChange: this.onOptionChange.bind(this) },
+          selectOptions
+        ),
+        _react2.default.createElement(
+          'button',
+          { className: 'question-button', onClick: this.handleAskClick.bind(this) },
+          'ask'
+        )
+      );
+    }
+  }]);
+
+  return QuestionSelect;
+}(_react2.default.Component);
 
 exports.default = QuestionSelect;
 
@@ -22333,7 +22392,7 @@ var QandAContainer = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'q-and-a' },
-        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems })
+        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems, answerQuestion: this.props.answerQuestion })
       );
     }
   }]);
