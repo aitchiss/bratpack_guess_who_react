@@ -7,7 +7,6 @@ class PictureCard extends React.Component{
     this.state = {
       img: this.props.img,
       name: this.props.name,
-      
     }
   }
 

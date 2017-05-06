@@ -22018,9 +22018,9 @@ var _react = __webpack_require__(82);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PictureContainer = __webpack_require__(183);
+var _PictureArea = __webpack_require__(192);
 
-var _PictureContainer2 = _interopRequireDefault(_PictureContainer);
+var _PictureArea2 = _interopRequireDefault(_PictureArea);
 
 var _QandAContainer = __webpack_require__(186);
 
@@ -22134,7 +22134,7 @@ var GuessWho = function (_React$Component) {
           null,
           'Guess Who? -- Bratpack Edition!'
         ),
-        _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters }),
+        _react2.default.createElement(_PictureArea2.default, { characters: this.state.characters }),
         _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this), answer: this.state.currentAnswer }),
         _react2.default.createElement(_FinalGuessContainer2.default, { characters: this.state.characters, finalGuessHandler: this.processFinalGuess.bind(this), finalGuessResult: this.state.finalGuessResult })
       );
@@ -22147,65 +22147,7 @@ var GuessWho = function (_React$Component) {
 exports.default = GuessWho;
 
 /***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(82);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _PictureCard = __webpack_require__(184);
-
-var _PictureCard2 = _interopRequireDefault(_PictureCard);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var PictureContainer = function (_React$Component) {
-  _inherits(PictureContainer, _React$Component);
-
-  function PictureContainer() {
-    _classCallCheck(this, PictureContainer);
-
-    return _possibleConstructorReturn(this, (PictureContainer.__proto__ || Object.getPrototypeOf(PictureContainer)).apply(this, arguments));
-  }
-
-  _createClass(PictureContainer, [{
-    key: 'render',
-    value: function render() {
-
-      var pictureCards = this.props.characters.map(function (character, index) {
-        return _react2.default.createElement(_PictureCard2.default, { img: character.img, name: character.name, key: index });
-      });
-
-      return _react2.default.createElement(
-        'div',
-        { className: 'picture-container' },
-        pictureCards
-      );
-    }
-  }]);
-
-  return PictureContainer;
-}(_react2.default.Component);
-
-exports.default = PictureContainer;
-
-/***/ }),
+/* 183 */,
 /* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22241,7 +22183,6 @@ var PictureCard = function (_React$Component) {
     _this.state = {
       img: _this.props.img,
       name: _this.props.name
-
     };
     return _this;
   }
@@ -22656,6 +22597,42 @@ var CharacterOption = function CharacterOption(props) {
 };
 
 exports.default = CharacterOption;
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _PictureCard = __webpack_require__(184);
+
+var _PictureCard2 = _interopRequireDefault(_PictureCard);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PictureArea = function PictureArea(props) {
+
+  var pictureCards = props.characters.map(function (character, index) {
+    return _react2.default.createElement(_PictureCard2.default, { img: character.img, name: character.name, key: index });
+  });
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'picture-container' },
+    pictureCards
+  );
+};
+
+exports.default = PictureArea;
 
 /***/ })
 /******/ ]);
