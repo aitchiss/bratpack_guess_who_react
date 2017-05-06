@@ -1,6 +1,6 @@
 import React from 'react'
 import PictureArea from '../components/PictureArea'
-import QandAContainer from './QandAContainer'
+import QandASection from '../components/QandASection'
 import FinalGuessContainer from './FinalGuessContainer'
 
 class GuessWho extends React.Component{
@@ -95,7 +95,7 @@ class GuessWho extends React.Component{
       <div id="guess-who-game">
         <h1>Guess Who? -- Bratpack Edition!</h1>
         <PictureArea characters={this.state.characters}/>
-        <QandAContainer questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)} answer={this.state.currentAnswer}/>
+        <QandASection questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)} answer={this.state.currentAnswer}/>
         <FinalGuessContainer characters={this.state.characters} finalGuessHandler={this.processFinalGuess.bind(this)} finalGuessResult={this.state.finalGuessResult} />
       </div>
     )

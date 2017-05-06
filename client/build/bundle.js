@@ -22022,9 +22022,9 @@ var _PictureArea = __webpack_require__(192);
 
 var _PictureArea2 = _interopRequireDefault(_PictureArea);
 
-var _QandAContainer = __webpack_require__(186);
+var _QandASection = __webpack_require__(193);
 
-var _QandAContainer2 = _interopRequireDefault(_QandAContainer);
+var _QandASection2 = _interopRequireDefault(_QandASection);
 
 var _FinalGuessContainer = __webpack_require__(189);
 
@@ -22135,7 +22135,7 @@ var GuessWho = function (_React$Component) {
           'Guess Who? -- Bratpack Edition!'
         ),
         _react2.default.createElement(_PictureArea2.default, { characters: this.state.characters }),
-        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this), answer: this.state.currentAnswer }),
+        _react2.default.createElement(_QandASection2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this), answer: this.state.currentAnswer }),
         _react2.default.createElement(_FinalGuessContainer2.default, { characters: this.state.characters, finalGuessHandler: this.processFinalGuess.bind(this), finalGuessResult: this.state.finalGuessResult })
       );
     }
@@ -22310,65 +22310,7 @@ var QuestionSelect = function (_React$Component) {
 exports.default = QuestionSelect;
 
 /***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(82);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _QuestionSelect = __webpack_require__(185);
-
-var _QuestionSelect2 = _interopRequireDefault(_QuestionSelect);
-
-var _Answer = __webpack_require__(188);
-
-var _Answer2 = _interopRequireDefault(_Answer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var QandAContainer = function (_React$Component) {
-  _inherits(QandAContainer, _React$Component);
-
-  function QandAContainer() {
-    _classCallCheck(this, QandAContainer);
-
-    return _possibleConstructorReturn(this, (QandAContainer.__proto__ || Object.getPrototypeOf(QandAContainer)).apply(this, arguments));
-  }
-
-  _createClass(QandAContainer, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'q-and-a' },
-        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems, answerQuestion: this.props.answerQuestion }),
-        _react2.default.createElement(_Answer2.default, { answer: this.props.answer })
-      );
-    }
-  }]);
-
-  return QandAContainer;
-}(_react2.default.Component);
-
-exports.default = QandAContainer;
-
-/***/ }),
+/* 186 */,
 /* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22633,6 +22575,43 @@ var PictureArea = function PictureArea(props) {
 };
 
 exports.default = PictureArea;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _QuestionSelect = __webpack_require__(185);
+
+var _QuestionSelect2 = _interopRequireDefault(_QuestionSelect);
+
+var _Answer = __webpack_require__(188);
+
+var _Answer2 = _interopRequireDefault(_Answer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var QandASection = function QandASection(props) {
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'q-and-a' },
+    _react2.default.createElement(_QuestionSelect2.default, { questionItems: props.questionItems, answerQuestion: props.answerQuestion }),
+    _react2.default.createElement(_Answer2.default, { answer: props.answer })
+  );
+};
+
+exports.default = QandASection;
 
 /***/ })
 /******/ ]);
