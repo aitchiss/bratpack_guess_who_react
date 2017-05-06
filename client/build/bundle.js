@@ -22022,6 +22022,10 @@ var _PictureContainer = __webpack_require__(183);
 
 var _PictureContainer2 = _interopRequireDefault(_PictureContainer);
 
+var _QandAContainer = __webpack_require__(186);
+
+var _QandAContainer2 = _interopRequireDefault(_QandAContainer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22071,7 +22075,9 @@ var GuessWho = function (_React$Component) {
         name: 'Demi Moore',
         img: 'http://www.hollywoodreporter.com/sites/default/files/2015/06/demi_moore_st_elmos_fire_p_15_everett.jpg',
         hair: 'brown',
-        eyes: 'brown' }]
+        eyes: 'brown' }],
+
+      questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes']
 
     };
     return _this;
@@ -22088,7 +22094,8 @@ var GuessWho = function (_React$Component) {
           null,
           'Guess Who?'
         ),
-        _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters })
+        _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters }),
+        _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems })
       );
     }
   }]);
@@ -22232,6 +22239,136 @@ var PictureCard = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = PictureCard;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _QuestionOption = __webpack_require__(187);
+
+var _QuestionOption2 = _interopRequireDefault(_QuestionOption);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var QuestionSelect = function QuestionSelect(props) {
+  var selectOptions = props.questionItems.map(function (item, index) {
+    return _react2.default.createElement(_QuestionOption2.default, { item: item, value: index, key: index });
+  });
+
+  return _react2.default.createElement(
+    'div',
+    { className: 'question-picker' },
+    _react2.default.createElement(
+      'p',
+      null,
+      'characteristic: '
+    ),
+    _react2.default.createElement(
+      'select',
+      null,
+      selectOptions
+    ),
+    _react2.default.createElement(
+      'button',
+      { className: 'question-button' },
+      'ask'
+    )
+  );
+};
+
+exports.default = QuestionSelect;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _QuestionSelect = __webpack_require__(185);
+
+var _QuestionSelect2 = _interopRequireDefault(_QuestionSelect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var QandAContainer = function (_React$Component) {
+  _inherits(QandAContainer, _React$Component);
+
+  function QandAContainer() {
+    _classCallCheck(this, QandAContainer);
+
+    return _possibleConstructorReturn(this, (QandAContainer.__proto__ || Object.getPrototypeOf(QandAContainer)).apply(this, arguments));
+  }
+
+  _createClass(QandAContainer, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'q-and-a' },
+        _react2.default.createElement(_QuestionSelect2.default, { questionItems: this.props.questionItems })
+      );
+    }
+  }]);
+
+  return QandAContainer;
+}(_react2.default.Component);
+
+exports.default = QandAContainer;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(82);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var QuestionOption = function QuestionOption(props) {
+  return _react2.default.createElement(
+    'option',
+    { value: props.value },
+    props.item
+  );
+};
+
+exports.default = QuestionOption;
 
 /***/ })
 /******/ ]);

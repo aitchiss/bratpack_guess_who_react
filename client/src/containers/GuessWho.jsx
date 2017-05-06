@@ -1,5 +1,6 @@
 import React from 'react'
 import PictureContainer from './PictureContainer'
+import QandAContainer from './QandAContainer'
 
 class GuessWho extends React.Component{
 
@@ -47,7 +48,10 @@ class GuessWho extends React.Component{
         img: 'http://www.hollywoodreporter.com/sites/default/files/2015/06/demi_moore_st_elmos_fire_p_15_everett.jpg',
         hair: 'brown',
         eyes: 'brown'}
-      ]
+      ],
+
+      questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes' ]
+     
 
     }
   }
@@ -57,6 +61,7 @@ class GuessWho extends React.Component{
       <div id="guess-who-game">
         <h1>Guess Who?</h1>
         <PictureContainer characters={this.state.characters}/>
+        <QandAContainer questionItems={this.state.questionItems}/>
       </div>
     )
   }

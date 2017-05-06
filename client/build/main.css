@@ -32,3 +32,20 @@
   border-top-right-radius: 10px;
 
 }
+
+.question-picker{
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.question-picker button, select{
+  font-size: 1em;
+  height: 30px;
+  margin-top: 15px;
+}
+
+.question-picker button{
+  width: 50px;
+}
