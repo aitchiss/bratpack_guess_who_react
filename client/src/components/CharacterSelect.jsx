@@ -10,6 +10,11 @@ class CharacterSelect extends React.Component{
     }
   }
 
+  updateSelection(e){
+    this.setState({currentSelection: e.target.value})
+    this.props.onChangeHandler(e.target.value)
+  }
+
   render(){
 
     const characterOptions = this.props.characters.map((character, index) => {
@@ -17,7 +22,7 @@ class CharacterSelect extends React.Component{
     })
 
     return(
-      <select>
+      <select onChange={this.updateSelection.bind(this)}>
         {characterOptions}
       </select>
     )

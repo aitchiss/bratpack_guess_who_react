@@ -36,7 +36,7 @@
 .question-picker{
   display: flex;
   flex-direction: row;
-  width: 300px;
+  width: 400px;
   justify-content: space-between;
 }
 
@@ -46,8 +46,8 @@
   margin-top: 15px;
 }
 
-.question-picker button{
-  width: 50px;
+button{
+  width: 70px;
 }
 
 .q-and-a{
@@ -56,4 +56,21 @@
 
 .answer-text{
   margin-left: 20px;
+}
+
+.final-guess-container{
+  display: flex;
+  width: 700px;
+  justify-content: space-between;
+  border: 2px solid #FB2A51;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.final-guess-container button, select{
+  font-size: 1em;
+  height: 30px;
+  margin-top: 15px;
 }

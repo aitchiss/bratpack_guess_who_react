@@ -22096,7 +22096,8 @@ var GuessWho = function (_React$Component) {
         'earrings': true }],
 
       questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes', 'wearing a shirt', 'earrings'],
-      currentAnswer: ''
+      currentAnswer: '',
+      finalGuessResult: ''
     };
 
     _this.indexOfPersonToGuess = Math.floor(Math.random() * _this.state.characters.length);
@@ -22114,6 +22115,15 @@ var GuessWho = function (_React$Component) {
       }
     }
   }, {
+    key: 'processFinalGuess',
+    value: function processFinalGuess(guessedCharacterIndex) {
+      if (parseInt(guessedCharacterIndex) === this.indexOfPersonToGuess) {
+        this.setState({ finalGuessResult: 'Correct - you win!' });
+      } else {
+        this.setState({ finalGuessResult: 'Wrong - you lose!' });
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -22122,11 +22132,11 @@ var GuessWho = function (_React$Component) {
         _react2.default.createElement(
           'h1',
           null,
-          'Guess Who?'
+          'Guess Who? -- Bratpack Edition!'
         ),
         _react2.default.createElement(_PictureContainer2.default, { characters: this.state.characters }),
         _react2.default.createElement(_QandAContainer2.default, { questionItems: this.state.questionItems, answerQuestion: this.answerQuestion.bind(this), answer: this.state.currentAnswer }),
-        _react2.default.createElement(_FinalGuessContainer2.default, { characters: this.state.characters })
+        _react2.default.createElement(_FinalGuessContainer2.default, { characters: this.state.characters, finalGuessHandler: this.processFinalGuess.bind(this), finalGuessResult: this.state.finalGuessResult })
       );
     }
   }]);
@@ -22504,19 +22514,49 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FinalGuessContainer = function (_React$Component) {
   _inherits(FinalGuessContainer, _React$Component);
 
-  function FinalGuessContainer() {
+  function FinalGuessContainer(props) {
     _classCallCheck(this, FinalGuessContainer);
 
-    return _possibleConstructorReturn(this, (FinalGuessContainer.__proto__ || Object.getPrototypeOf(FinalGuessContainer)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (FinalGuessContainer.__proto__ || Object.getPrototypeOf(FinalGuessContainer)).call(this, props));
+
+    _this.state = {
+      currentGuess: 0
+    };
+    return _this;
   }
 
   _createClass(FinalGuessContainer, [{
+    key: 'updateCurrentGuess',
+    value: function updateCurrentGuess(characterIndex) {
+      this.setState({ currentGuess: characterIndex });
+    }
+  }, {
+    key: 'handleButtonClick',
+    value: function handleButtonClick() {
+      this.props.finalGuessHandler(this.state.currentGuess);
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         { className: 'final-guess-container' },
-        _react2.default.createElement(_CharacterSelect2.default, { characters: this.props.characters })
+        _react2.default.createElement(
+          'p',
+          null,
+          'make your final guess: '
+        ),
+        _react2.default.createElement(_CharacterSelect2.default, { characters: this.props.characters, onChangeHandler: this.updateCurrentGuess.bind(this) }),
+        _react2.default.createElement(
+          'button',
+          { className: 'final-guess', onClick: this.handleButtonClick.bind(this) },
+          'guess'
+        ),
+        _react2.default.createElement(
+          'p',
+          { className: 'final-guess-result' },
+          this.props.finalGuessResult
+        )
       );
     }
   }]);
@@ -22570,6 +22610,12 @@ var CharacterSelect = function (_React$Component) {
   }
 
   _createClass(CharacterSelect, [{
+    key: 'updateSelection',
+    value: function updateSelection(e) {
+      this.setState({ currentSelection: e.target.value });
+      this.props.onChangeHandler(e.target.value);
+    }
+  }, {
     key: 'render',
     value: function render() {
 
@@ -22579,7 +22625,7 @@ var CharacterSelect = function (_React$Component) {
 
       return _react2.default.createElement(
         'select',
-        null,
+        { onChange: this.updateSelection.bind(this) },
         characterOptions
       );
     }

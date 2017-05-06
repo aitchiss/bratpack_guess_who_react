@@ -67,6 +67,7 @@ class GuessWho extends React.Component{
 
       questionItems: ['female', 'male', 'glasses', 'red hair', 'brown hair', 'blonde hair', 'brown eyes', 'blue eyes', 'wearing a shirt', 'earrings' ],
       currentAnswer: '',
+      finalGuessResult: ''
     }
 
     this.indexOfPersonToGuess = Math.floor(Math.random() * this.state.characters.length)
@@ -81,13 +82,21 @@ class GuessWho extends React.Component{
     }
   }
 
+  processFinalGuess(guessedCharacterIndex){
+    if (parseInt(guessedCharacterIndex) === this.indexOfPersonToGuess){
+      this.setState({finalGuessResult: 'Correct - you win!'})
+    } else {
+      this.setState({finalGuessResult: 'Wrong - you lose!'})
+    }
+  }
+
   render(){
     return (
       <div id="guess-who-game">
-        <h1>Guess Who?</h1>
+        <h1>Guess Who? -- Bratpack Edition!</h1>
         <PictureContainer characters={this.state.characters}/>
         <QandAContainer questionItems={this.state.questionItems} answerQuestion={this.answerQuestion.bind(this)} answer={this.state.currentAnswer}/>
-        <FinalGuessContainer characters={this.state.characters} />
+        <FinalGuessContainer characters={this.state.characters} finalGuessHandler={this.processFinalGuess.bind(this)} finalGuessResult={this.state.finalGuessResult} />
       </div>
     )
   }
